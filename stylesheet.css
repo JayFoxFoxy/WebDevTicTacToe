@@ -44,6 +44,21 @@ body {
     border-radius: 15px;
 }
 
+#displayText {
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 #cName {
 
     display: none;
@@ -128,6 +143,7 @@ body {
 }
 
 .pRow:last-child{
+
     margin-top: 20px;
 }
 
@@ -213,6 +229,38 @@ body {
     height: 520px;
 
 
+}
+
+#newGame {
+
+    display: none;
+    
+    position: absolute;
+
+    top: 65px;
+    left: 420px;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 15px;
+
+    background-color: #45484d;
+
+}
+
+#gameFinish {
+    margin-top: 60px;
+    margin-left: 35px;
+
+    font-size: 72px;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
 }
 
 .bt{
