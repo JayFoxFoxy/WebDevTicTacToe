@@ -11,11 +11,13 @@ console.log('Im here');
 
 let player1 = "";
 let player2 = "";
+
+//console.log(player1.length);
 let validation = 0;
 
-let playerTurn = 1;
+//let playerTurn = 1;
 
-let rounds = 0;
+//let rounds = 0;
 
 lockGame();
 

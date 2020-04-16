@@ -27,9 +27,10 @@ function openNameChange(validation){
 
         //console.log(validation);
 
-        if(validation == 2){
+        //if(validation == 2){
+        if(this.player1.length != 0 && this.player2.length !=0){
             unlockGame();
-            this.playerTurn = 1;
+            //this.playerTurn = 1;
             //console.log(this.playerTurn);
         }
 
@@ -47,9 +48,9 @@ function openNameChange(validation){
 
         abt.onclick = function(){
 
-            var input = document.getElementById("cBarForm").value;
+            var input2 = document.getElementById("cBarForm").value;
 
-            this.player2 = input;
+            this.player2 = input2;
             //console.log(this.player1);
             //console.log(input);
 
@@ -63,9 +64,10 @@ function openNameChange(validation){
 
         //console.log(validation);
 
-        if(validation == 2){
+        //if(validation == 2){
+            if(this.player1.length != 0 && this.player2.length !=0){
             unlockGame();
-            this.playerTurn = 1;
+            //this.playerTurn = 1;
             //console.log(this.playerTurn);
         }
 
@@ -99,8 +101,10 @@ function unlockGame(){
     for (let i = 0; i < children.length; i++){
         document.getElementById(children[i].id).style.pointerEvents = 'auto';
         document.getElementById(children[i].id).textContent = '';
-        document.getElementById('displayText').textContent = 'Player 1 its your turn';
+        //document.getElementById('displayText').textContent = 'Player 1 its your turn';
     }
+
+    document.getElementById('displayText').textContent = 'Player 1 its your turn';
 
     simplePlay();
 
@@ -119,21 +123,26 @@ function simplePlay(){
     let children = document.getElementById('buttons').children;
 
     let round = 0;
+    console.log(round);
+    console.log(board);
     let player = '';
 
-    if(round % 2 == 0){
-        player = 'X';
-    }else{
-        player = 'O';
-    }
+    //if(round % 2 == 0){
+    //    player = 'X';
+    //    
+    //}else{
+    //    player = 'O';
+    //}
 
     for (let i = 0; i < children.length; i++){
         document.getElementById(children[i].id).addEventListener('click', function (){
 
             if(round % 2 == 0){
                 player = 'X';
+                document.getElementById('displayText').textContent = 'Player 2 its your turn';
             }else{
                 player = 'O';
+                document.getElementById('displayText').textContent = 'Player 1 its your turn';
             }
 
             document.getElementById(children[i].id).textContent = player;
@@ -278,7 +287,7 @@ function winMsg(player) {
             break;
         case 1:
             document.getElementById('newGame').style.display = "block";
-            document.getElementById('gameFinish').innerHTML = 'Player X won the game!<br/><br/>5 seconds to reset!';
+            document.getElementById('gameFinish').innerHTML = 'Player 1 won the game!<br/><br/>5 seconds to reset!';
             //wait(5000);
             setTimeout(function () {
                 document.getElementById('newGame').style.display = "none";
@@ -288,7 +297,7 @@ function winMsg(player) {
             break;
         case 2:
             document.getElementById('newGame').style.display = "block";
-            document.getElementById('gameFinish').innerHTML = 'Player Y won the game!<br/><br/>5 seconds to reset!';
+            document.getElementById('gameFinish').innerHTML = 'Player 2 won the game!<br/><br/>5 seconds to reset!';
             setTimeout(function () {
                 document.getElementById('newGame').style.display = "none";
             }, 5000);
