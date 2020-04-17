@@ -1,5 +1,15 @@
 console.log('Im here');
 
+let board = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
+
+let round = 0;
+
+//let children = document.getElementById('buttons').children;
+
 
 //Bug on player validation... not 2 but the player name != than ""
 
@@ -13,7 +23,7 @@ let player1 = "";
 let player2 = "";
 
 //console.log(player1.length);
-let validation = 0;
+//let validation = 0;
 
 //let playerTurn = 1;
 
@@ -23,9 +33,9 @@ lockGame();
 
 
 
-validation = openNameChange(validation);
+openNameChange();
 
-console.log(validation);
+//console.log(validation);
 
 
 //do{

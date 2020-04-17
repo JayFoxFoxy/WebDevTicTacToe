@@ -1,4 +1,6 @@
-function openNameChange(validation){
+//Change this.player1 to player1, the scope enters inside of the functions
+
+function openNameChange(){
 
     const bpc1 = document.getElementById('bpc1');
     const bpc2 = document.getElementById('bpc2');
@@ -23,12 +25,12 @@ function openNameChange(validation){
 
             document.getElementById('pl1').textContent = this.player1;
 
-            validation += 1;
+            //validation += 1;
 
         //console.log(validation);
 
         //if(validation == 2){
-        if(this.player1.length != 0 && this.player2.length !=0){
+        if(this.player1.length != 0 && this.player2.length != 0){
             unlockGame();
             //this.playerTurn = 1;
             //console.log(this.playerTurn);
@@ -36,7 +38,7 @@ function openNameChange(validation){
 
         }
 
-        return validation;
+        //return validation;
 
     }
 
@@ -60,7 +62,7 @@ function openNameChange(validation){
 
             document.getElementById('pl2').textContent = this.player2;
 
-            validation += 1;
+            //validation += 1;
 
         //console.log(validation);
 
@@ -73,7 +75,7 @@ function openNameChange(validation){
 
         }
  
-        return validation;
+        //return validation;
 
 
     }
@@ -112,20 +114,39 @@ function unlockGame(){
 
 function simplePlay(){
 
-    let board = [
+    //resetBoard();
+    //let board = [
+    //    [0, 0, 0],
+    //    [0, 0, 0],
+    //    [0, 0, 0]
+    //];
+
+    board = [
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
     ];
 
+    //console.log('t ' + this.round);
+    //console.log(' ' + round);
+    round = 0;
+    //console.log(' ' + round);
+    //console.log('t ' + this.round);
+
+    //console.log(board);
+    //board = resetBoard(board);
+
     
 
-    let children = document.getElementById('buttons').children;
+    
 
-    let round = 0;
-    console.log(round);
-    console.log(board);
-    let player = '';
+    //let round = 0;
+
+    //round = 0
+
+    //console.log(round);
+    //console.log(board);
+    player = '';
 
     //if(round % 2 == 0){
     //    player = 'X';
@@ -134,8 +155,10 @@ function simplePlay(){
     //    player = 'O';
     //}
 
+    let children = document.getElementById('buttons').children;
+
     for (let i = 0; i < children.length; i++){
-        document.getElementById(children[i].id).addEventListener('click', function (){
+        document.getElementById(children[i].id).addEventListener('click', function game(){
 
             if(round % 2 == 0){
                 player = 'X';
@@ -148,34 +171,37 @@ function simplePlay(){
             document.getElementById(children[i].id).textContent = player;
             document.getElementById(children[i].id).style.pointerEvents = 'none';
 
-            board = arrayReg(i, round, board);
+            arrayReg(i, round, board);
+            //arrayReg(i);
             console.log(board);
-            board = checkWin(board, round);
+            console.log(round);
+            checkWin(board, round);
+            //checkWin();
 
-            
             //checkPlay();
 
-            round ++;
+            round++;
+
+            //document.getElementById(children[i].id).removeEventListener('click', game());
+
+            //this.removeEventListener('click', game);
         });
         //console.log(children[i]);
         //document.getElementById(children[i].id).onclick = function (){
-
-            
-
         //}
     }
 
 
 }
 
-function arrayReg(number, round, board){
+function arrayReg(number){
     if(number < 3){
         if(round % 2 == 0){
             board[0][number] = 1;
         }else{
             board[0][number] = 2;
         }
-    }else if(number > 2 && number < 5){
+    }else if(number > 2 && number < 6){
         if(round % 2 == 0){
             board[1][number-3] = 1;
         }else{
@@ -189,86 +215,98 @@ function arrayReg(number, round, board){
         }
     }
 
+    //round++;
+
     return board;
 }
 
-function checkWin(board, round){
+function checkWin(){
     
     if(board[0][0] === 1 && board[0][1] === 1 && board[0][2] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][0] === 2 && board[0][1] === 2 && board[0][2] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[1][0] === 1 && board[1][1] === 1 && board[1][2] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[1][0] === 2 && board[1][1] === 2 && board[1][2] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[2][0] === 1 && board[2][1] === 1 && board[2][2] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[2][0] === 2 && board[2][1] === 2 && board[2][2] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][0] === 1 && board[1][0] === 1 && board[2][0] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][0] === 2 && board[1][0] === 2 && board[2][0] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][1] === 1 && board[1][1] === 1 && board[2][1] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][1] === 2 && board[1][1] === 2 && board[2][1] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][2] === 1 && board[1][2] === 1 && board[2][2] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(board[0][2] === 2 && board[1][2] === 2 && board[2][2] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
-    }else if(board[0][2] === 1 && board[1][1] === 1 && board[2][2] === 1){
+        //unlockGame();
+    }else if(board[0][0] === 1 && board[1][1] === 1 && board[2][2] === 1){
         //alert('Player 1 wins');
         winMsg(1);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
+    }else if(board[0][0] === 2 && board[1][1] === 2 && board[2][2] === 2){
+        //alert('Player 1 wins');
+        winMsg(2);
+        //resetBoard(board);
+        //unlockGame();
+    }else if(board[0][2] === 1 && board[1][1] === 1 && board[2][0] === 1){
+        //alert('Player 2 wins');
+        winMsg(1);
+        //resetBoard(board);
+        //unlockGame();
     }else if(board[0][2] === 2 && board[1][1] === 2 && board[2][0] === 2){
         //alert('Player 2 wins');
         winMsg(2);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }else if(round === 8){
         //alert('Draw!');
         winMsg(0);
         //resetBoard(board);
-        unlockGame();
+        //unlockGame();
     }
 
     return board;
@@ -278,31 +316,33 @@ function winMsg(player) {
     switch(player){
         case 0:
             document.getElementById('newGame').style.display = "block";
-            document.getElementById('gameFinish').innerHTML = 'Draw!';
-            
+            document.getElementById('gameFinish').innerHTML = 'Draw!<br/><br/>5 seconds to reset!';
+            resetGame();
             setTimeout(function () {
                 document.getElementById('newGame').style.display = "none";
             }, 5000);
-            unlockGame();
+           
             break;
         case 1:
             document.getElementById('newGame').style.display = "block";
             document.getElementById('gameFinish').innerHTML = 'Player 1 won the game!<br/><br/>5 seconds to reset!';
             //wait(5000);
+            resetGame();
             setTimeout(function () {
                 document.getElementById('newGame').style.display = "none";
             }, 5000);
             //document.getElementById('newGame').style.display = "none";
-            unlockGame();
+            
             break;
         case 2:
             document.getElementById('newGame').style.display = "block";
             document.getElementById('gameFinish').innerHTML = 'Player 2 won the game!<br/><br/>5 seconds to reset!';
+            resetGame();
             setTimeout(function () {
                 document.getElementById('newGame').style.display = "none";
             }, 5000);
             //document.getElementById('newGame').style.display = "none";
-            unlockGame();
+            
             break;
         default:
             console.log('Error!');
@@ -310,7 +350,10 @@ function winMsg(player) {
     
 }
 
-function resetBoard(board){
+function resetGame(){
+
+    //console.log(round);
+    //console.log(board);
 
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){
@@ -318,7 +361,15 @@ function resetBoard(board){
         }
     }
 
+    let children = document.getElementById('buttons').children;
+    for (let i = 0; i < children.length; i++){
+        document.getElementById(children[i].id).style.pointerEvents = 'auto';
+        document.getElementById(children[i].id).textContent = '';
+    }
 
+    document.getElementById('displayText').textContent = 'Player 1 its your turn';
+
+    round = -1;
 
 }
     /*bpc1.addEventListener('click', function(){
