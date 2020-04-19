@@ -8,6 +8,14 @@ let board = [
 
 let round = 0;
 
+function player (playerName) {
+    this.name = playerName;
+    this.wins = 0;
+    this.color = "";
+
+} // Object constructor
+
+let players = [];
 //let children = document.getElementById('buttons').children;
 
 
@@ -19,8 +27,8 @@ let round = 0;
 //    [0, 0, 0]
 //];
 
-let player1 = "";
-let player2 = "";
+//let player1 = "";
+//let player2 = "";
 
 //console.log(player1.length);
 //let validation = 0;
