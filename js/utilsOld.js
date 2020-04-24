@@ -107,21 +107,24 @@ function openNameChange() {
 function lockGame() {
   let children = document.getElementById("buttons").children;
   for (let i = 0; i < children.length; i++) {
-    //console.log(children[i]);
-    document.getElementById(children[i].id).textContent = "N";
-    document.getElementById(children[i].id).style.backgroundColor = "#C4C4C4";
-    /*document.getElementById(children[i].id).classList.remove('bt:hover');*/
-    document.getElementById(children[i].id).style.pointerEvents = "none";
+    if (document.getElementById(children[i].id !== null)) {
+      //console.log(children[i]);
+      document.getElementById(children[i].id).textContent = "N";
+      document.getElementById(children[i].id).style.backgroundColor = "#C4C4C4";
+      /*document.getElementById(children[i].id).classList.remove('bt:hover');*/
+      document.getElementById(children[i].id).style.pointerEvents = "none";
+    }
   }
 }
 
 function unlockGame() {
   let children = document.getElementById("buttons").children;
-
   for (let i = 0; i < children.length; i++) {
-    document.getElementById(children[i].id).style.pointerEvents = "auto";
-    document.getElementById(children[i].id).textContent = "";
-    //document.getElementById('displayText').textContent = 'Player 1 its your turn';
+    if (document.getElementById(children[i].id !== null)) {
+      document.getElementById(children[i].id).style.pointerEvents = "auto";
+      document.getElementById(children[i].id).textContent = "";
+      //document.getElementById('displayText').textContent = 'Player 1 its your turn';
+    }
   }
 
   document.getElementById("displayText").textContent =
@@ -171,40 +174,42 @@ function simplePlay() {
   let children = document.getElementById("buttons").children;
 
   for (let i = 0; i < children.length; i++) {
-    document
-      .getElementById(children[i].id)
-      .addEventListener("click", function game() {
-        if (round % 2 == 0) {
-          symbolPlayer = "X";
-          document.getElementById("displayText").textContent =
-            "Player " + players[1].name + " its your turn";
-        } else {
-          symbolPlayer = "O";
-          document.getElementById("displayText").textContent =
-            "Player " + players[0].name + " its your turn";
-        }
+    if (document.getElementById(children[i].id !== null)) {
+      document
+        .getElementById(children[i].id)
+        .addEventListener("click", function game() {
+          if (round % 2 == 0) {
+            symbolPlayer = "X";
+            document.getElementById("displayText").textContent =
+              "Player " + players[1].name + " its your turn";
+          } else {
+            symbolPlayer = "O";
+            document.getElementById("displayText").textContent =
+              "Player " + players[0].name + " its your turn";
+          }
 
-        document.getElementById(children[i].id).textContent = symbolPlayer;
-        document.getElementById(children[i].id).style.pointerEvents = "none";
+          document.getElementById(children[i].id).textContent = symbolPlayer;
+          document.getElementById(children[i].id).style.pointerEvents = "none";
 
-        arrayReg(i, round, board);
-        //arrayReg(i);
-        console.log(board);
-        console.log(round);
-        checkWin(board, round);
-        //checkWin();
+          arrayReg(i, round, board);
+          //arrayReg(i);
+          console.log(board);
+          console.log(round);
+          checkWin(board, round);
+          //checkWin();
 
-        //checkPlay();
+          //checkPlay();
 
-        round++;
+          round++;
 
-        //document.getElementById(children[i].id).removeEventListener('click', game());
+          //document.getElementById(children[i].id).removeEventListener('click', game());
 
-        //this.removeEventListener('click', game);
-      });
-    //console.log(children[i]);
-    //document.getElementById(children[i].id).onclick = function (){
-    //}
+          //this.removeEventListener('click', game);
+        });
+      //console.log(children[i]);
+      //document.getElementById(children[i].id).onclick = function (){
+      //}
+    }
   }
 }
 
