@@ -43,7 +43,11 @@ function openNameChange() {
 
       //if(validation == 2){
       //if(this.player1.length != 0 && this.player2.length != 0){
-      if (players[0].name.length != 0 && players[1].name.length != 0) {
+      if (
+        players[0].name.length != 0 &&
+        players[1].name.length != 0 &&
+        games == 0
+      ) {
         unlockGame();
         //this.playerTurn = 1;
         //console.log(this.playerTurn);
@@ -93,14 +97,15 @@ function openNameChange() {
       //console.log(validation);
 
       //if(validation == 2){
-      if (players[0].name.length != 0 && players[1].name.length != 0) {
+      if (
+        players[0].name.length != 0 &&
+        players[1].name.length != 0 &&
+        games == 0
+      ) {
+        // After changing the first time will call the second time because the condition will be always true!
         unlockGame();
-        //this.playerTurn = 1;
-        //console.log(this.playerTurn);
       }
     };
-
-    //return validation;
   };
 }
 
@@ -240,6 +245,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][0] === 2 && board[0][1] === 2 && board[0][2] === 2) {
@@ -247,6 +254,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[1][0] === 1 && board[1][1] === 1 && board[1][2] === 1) {
@@ -254,6 +263,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[1][0] === 2 && board[1][1] === 2 && board[1][2] === 2) {
@@ -261,6 +272,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[2][0] === 1 && board[2][1] === 1 && board[2][2] === 1) {
@@ -268,6 +281,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[2][0] === 2 && board[2][1] === 2 && board[2][2] === 2) {
@@ -275,6 +290,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][0] === 1 && board[1][0] === 1 && board[2][0] === 1) {
@@ -282,6 +299,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][0] === 2 && board[1][0] === 2 && board[2][0] === 2) {
@@ -289,6 +308,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][1] === 1 && board[1][1] === 1 && board[2][1] === 1) {
@@ -296,6 +317,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][1] === 2 && board[1][1] === 2 && board[2][1] === 2) {
@@ -303,6 +326,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][2] === 1 && board[1][2] === 1 && board[2][2] === 1) {
@@ -310,6 +335,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][2] === 2 && board[1][2] === 2 && board[2][2] === 2) {
@@ -317,6 +344,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][0] === 1 && board[1][1] === 1 && board[2][2] === 1) {
@@ -324,6 +353,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][0] === 2 && board[1][1] === 2 && board[2][2] === 2) {
@@ -331,6 +362,8 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][2] === 1 && board[1][1] === 1 && board[2][0] === 1) {
@@ -338,6 +371,8 @@ function checkWin() {
     addWin(0);
     console.log(players);
     winMsg(1);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (board[0][2] === 2 && board[1][1] === 2 && board[2][0] === 2) {
@@ -345,11 +380,15 @@ function checkWin() {
     addWin(1);
     console.log(players);
     winMsg(2);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   } else if (round === 8) {
     //alert('Draw!');
     winMsg(0);
+    games += 1;
+    console.log("Games Played: " + games);
     //resetBoard(board);
     //unlockGame();
   }
