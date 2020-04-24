@@ -120,6 +120,7 @@ body {
 #aName:hover {
   background-image: url("imgs/bAccept.png");
   /* transform: translateY(-2px); */
+  -o-transform: scale(1.3, 1.3);
   transform: scale(1.3, 1.3);
 }
 
@@ -184,6 +185,7 @@ body {
   background-image: url("imgs/bpc.png");
 
   /* transform: translateY(-2px); */
+  -o-transform: scale(1.3, 1.3);
   transform: scale(1.3, 1.3);
 }
 
